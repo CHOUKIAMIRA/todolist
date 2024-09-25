@@ -1,42 +1,162 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+*{
+  margin:0;
+  padding:0;
+}
+
+
+.icone{
+visibility: hidden;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: orange;
+ width: 100vw;
+  position: fixed;
+ z-index: 1000;
+}
+section {
+  position: absolute;
+  Top:110px;
+  width: auto;
+ display:flex;
+ justify-content: start;
+ gap:10px; 
+   margin: 10px;
+  }
+  
+ 
+ .card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+gap:10px;
+}
+ main{
+  width: 600px;
+margin:0 100px;
+
+  
+ }
+ nav{
+  width: auto;
+  margin-left: 90px;
+   margin-top: 0;
+ }
+ button{
+  background-color: #FAEA73;
+  color:gray;
+    height: 70px;
+    width: 120px;
+    border: none;
+    font-family: URW Chancery L, cursive;
+    font-weight: 1000;
+  border-radius: 10px;
+ 
+ }
+ .calendrier {
+  width: 250px;
+  margin: 0 20px;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color:orange;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.calendar-header {
+display: flex; /* Utilise Flexbox */
+justify-content: center; /* Centre les éléments horizontalement */
+align-items: center; /* Centre les éléments verticalement */
+/* Aligne les flèches et le mois/année en colonne */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.month-year {
+display: flex; /* Utilise Flexbox pour le mois et l'année */
+flex-direction: column; /* Aligne le mois et l'année verticalement */
+align-items: center; /* Centre horizontalement */
+padding:0 20px
+}
+.supinf{
+border:none;
+padding: 5px;
+background-color:orange;
+font-size: 20px;
+font-weight: 600;
+cursor: pointer;
+}
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 jours */
+  gap: 1px; /* Espace entre les jours */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.day {
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #ccc; /* Bordure pour les jours */
+  cursor: pointer;
 }
 
-.card {
-  padding: 2em;
+.day.empty {
+  background-color: transparent; /* Pas de fond pour les jours vides */
 }
+.clock{
+  padding:30px 55px;
+}
+figure{
+  width: 300px;
+  padding: 10px;
+    }
+    .sectionpc{
+display: none;
+    }
+.b2{
+  width: 70px;
+  height: 50px;
+  background-color: lightblue;
+  margin-left: 250px;
+}
+.cal {
+  display: none;
+ 
+}
+h4{
+  text-align: center;
+}
+    @media screen and (max-width:600px) {
+      .icone{
+        visibility: visible;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+      margin-left: 15px;
+        } 
+        section{
+          display:none;
+        }
+        .sectionpc{
+          
+display:block;
+display:flex;
+justify-content: center;
+align-items: center;
+padding-top: 150px;
 
-.read-the-docs {
-  color: #888;
-}
+        }
+        .b1{
+         
+          margin-left: 50px;
+        }
+        .cal {
+          display: block;
+        margin-left: 100px;
+        }
+        h4{
+          text-align: center;
+        }
+        
+       
+    }

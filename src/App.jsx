@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Acceuil from './components/Acceuil';
+import TaskCompleted from './components/TaskCompleted'; // Assurez-vous que ce chemin est correct
+import TaskNotCompleted from './components/TaskNotCompleted'; // Assurez-vous que ce chemin est correct
+import TaskToDay from './components/TaskToDay';
+import { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [visible, setVisible] = useState(false);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path="/" element={<Acceuil visible={visible} setVisible={setVisible} />} />
+        <Route path="/taskcompleted" element={<TaskCompleted visible={visible} setVisible={setVisible} />} />
+        <Route path="/tasknotcompleted" element={<TaskNotCompleted visible={visible} setVisible={setVisible} />} />
+        <Route path="/tasktoday" element={<TaskToDay visible={visible} setVisible={setVisible} />} />
+      </Routes>
+      <ToastContainer 
+        position='bottom-left' 
+        autoClose={3000} 
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
