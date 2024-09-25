@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdDelete } from 'react-icons/md';
 import UpdateTask from './UpdateTask';
 import { Card } from 'react-bootstrap';
 import Calendrier from './Calendrier';
 import { toast } from 'react-toastify'; // Assurez-vous que react-toastify est importé
 
-function Completed({ tasks, setTasks }) {
+function Completed() {
+  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    setTasks(storedTasks);
+  }, []);
   // Filtrer les tâches complétées
   const completedTasks = tasks.filter(task => task.etat === true);
 
